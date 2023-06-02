@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\DisapeardPeople.MVC.props" />
+</Project>
