@@ -1,11 +1,25 @@
 ﻿@model IEnumerable<DisapeardPeople.MVC.Models.DisappearPerson>
+@using DisapeardPeople.MVC.Data.Enum
+
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Lista osób zaginionych</h1>
-
+@using (Html.BeginForm("Index", "DisappearPersons", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.Label("Płeć:")
+        @Html.DropDownList("genderFilter", Enum.GetValues(typeof(Gender)).OfType<Gender>().Select(x => new SelectListItem
+        {
+            Text = x.ToString(),
+            Value = x.ToString(),
+            Selected = (Context.Request.Query["genderFilter"] == x.ToString())
+        }), "Wszystkie")
+        <button type="submit" class="btn btn-primary">Filtruj</button>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
@@ -14,12 +28,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Surname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Height)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.City)
@@ -49,12 +57,6 @@
                 @Html.DisplayFor(modelItem => item.Surname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Height)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.City)
             </td>
             <td>
@@ -67,15 +69,16 @@
                 @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                <img src="@("~/Image/"+item.Image)" asp-append-version="true" width="150" height="150" />
             </td>
-            @*<td>
-                    <img src="@("~/image/"+item.Image)" asp-append-version="true" width="250px" height="250px" />
-            </td>*@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                @if (User.IsInRole("admin"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                }
+
             </td>
         </tr>
 }

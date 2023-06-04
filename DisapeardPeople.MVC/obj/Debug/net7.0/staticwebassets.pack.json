@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\DisapeardPeople.MVC.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\Image\\280968480_3171975586382073_4021445061982699863_n231811184.jpg",
+      "PackagePath": "staticwebassets\\Image\\280968480_3171975586382073_4021445061982699863_n231811184.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\Image\\284208498_3179557565623875_4010796004954354318_n232721054.jpg",
+      "PackagePath": "staticwebassets\\Image\\284208498_3179557565623875_4010796004954354318_n232721054.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\Image\\f4b4a0aa-16a4-4748-9c93-bacf86de5115_281990939_3173615632884735_1395792387874000017_n.jpg",
+      "PackagePath": "staticwebassets\\Image\\f4b4a0aa-16a4-4748-9c93-bacf86de5115_281990939_3173615632884735_1395792387874000017_n.jpg"
+    },
+    {
       "Id": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

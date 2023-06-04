@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mimia\Desktop\DisapeardPeopleApp\DisapeardPeople\DisapeardPeople.MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/mimia/Desktop/DisapeardPeopleApp/DisapeardPeople/DisapeardPeople.MVC/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mimia/Desktop/DisapeardPeopleApp/DisapeardPeople/DisapeardPeople.MVC/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mimia/Desktop/DisapeardPeopleApp/DisapeardPeople/DisapeardPeople.MVC/Views/Administrator/ListUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxMaXN0VXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mimia/Desktop/DisapeardPeopleApp/DisapeardPeople/DisapeardPeople.MVC/Views/DisappearPersons/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzYXBwZWFyUGVyc29uc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

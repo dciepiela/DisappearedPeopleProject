@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="DisappearPerson" asp-action="Index">DisapeardPeople.MVC</a>
+                <a class="navbar-brand" asp-area="" asp-controller="DisappearPersons" asp-action="Index">Osoby zaginione</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,9 +22,37 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="DisappearPersons" asp-action="Index">Lista osób zaginionych</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DisappearPersons" asp-action="Create">Dodaj osobę zaginioną</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="DisappearPersons" asp-action="Create">Dodaj osobę zaginioną</a>
+                            </li>
+
+                        }
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("admin"))
+                            {
+                             <li class="nav-item ">
+                                <a class="nav-link text-dark " asp-area="" asp-controller="Administrator" asp-action="ListUsers">Zarządzaj użytkownikami</a>
+                            </li>
+                            }
+                            <li class="nav-item ">
+                                <a class="nav-link text-dark " asp-area="" asp-controller="Account" asp-action="Logout">Wyloguj</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link text-dark " asp-area="" asp-controller="Account" asp-action="Login">Logowanie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Rejestracja</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

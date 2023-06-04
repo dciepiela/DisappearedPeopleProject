@@ -1,8 +1,11 @@
-﻿namespace DisapeardPeople.MVC.Data.Enum
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DisapeardPeople.MVC.Data.Enum
 {
     public enum Province
     {
         Dolnośląskie,
+        [Display(Name = "Kujawsko-pomorskie")]
         KujawskoPomorskie,
         Lubelskie,
         Lubuskie,
@@ -15,6 +18,7 @@
         Pomorskie,
         Śląskie,
         Świętokrzyskie,
+        [Display(Name = "Warmińsko-Mazurskie")]
         WarmińskoMazurskie,
         Wielkopolskie,
         Zachodniopomorskie

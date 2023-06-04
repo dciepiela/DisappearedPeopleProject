@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DisapeardPeople.MVC.Data;
 using DisapeardPeople.MVC.Models;
+using Microsoft.AspNetCore.Authorization;
+using DisapeardPeople.MVC.Data.Enum;
+using Microsoft.Extensions.Hosting;
 
 namespace DisapeardPeople.MVC.Controllers
 {
@@ -22,11 +25,16 @@ namespace DisapeardPeople.MVC.Controllers
         }
 
         // GET: DisappearPersons
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Gender? genderFilter)
         {
-              return _context.DisappearPerson != null ? 
-                          View(await _context.DisappearPerson.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.DisappearPerson'  is null.");
+            var disappearPersons = _context.DisappearPerson.AsQueryable();
+
+            if (genderFilter.HasValue)
+            {
+                disappearPersons = disappearPersons.Where(x => x.Gender == genderFilter.Value);
+            }
+
+            return View(await disappearPersons.ToListAsync());
         }
 
         // GET: DisappearPersons/Details/5
@@ -48,6 +56,7 @@ namespace DisapeardPeople.MVC.Controllers
         }
 
         // GET: DisappearPersons/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -58,6 +67,7 @@ namespace DisapeardPeople.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,FirstName,Surname,Age,Height,City,ImageFile,DisappearDate,Province,Gender")] DisappearPerson disappearPerson)
         {
                 //Zapisz zdjęcie do wwwroot/image
@@ -77,6 +87,7 @@ namespace DisapeardPeople.MVC.Controllers
         }
 
         // GET: DisappearPersons/Edit/5
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.DisappearPerson == null)
@@ -97,6 +108,7 @@ namespace DisapeardPeople.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,Surname,Age,Height,City,ImageFile,DisappearDate,Province,Gender")] DisappearPerson disappearPerson)
         {
             if (id != disappearPerson.Id)
@@ -104,10 +116,22 @@ namespace DisapeardPeople.MVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
+                    if (disappearPerson.ImageFile != null && disappearPerson.ImageFile.Length > 0)
+                    {
+                        string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "Image");
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + disappearPerson.ImageFile.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await disappearPerson.ImageFile.CopyToAsync(stream);
+                        }
+                        disappearPerson.Image = uniqueFileName;
+                    }
+
                     _context.Update(disappearPerson);
                     await _context.SaveChangesAsync();
                 }
@@ -128,6 +152,7 @@ namespace DisapeardPeople.MVC.Controllers
         }
 
         // GET: DisappearPersons/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.DisappearPerson == null)
@@ -148,6 +173,7 @@ namespace DisapeardPeople.MVC.Controllers
         // POST: DisappearPersons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var disappearPerson = await _context.DisappearPerson.FindAsync(id);

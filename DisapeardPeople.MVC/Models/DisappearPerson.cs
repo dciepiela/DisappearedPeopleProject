@@ -1,5 +1,6 @@
 ﻿using DisapeardPeople.MVC.Data.Enum;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,7 +27,7 @@ namespace DisapeardPeople.MVC.Models
         public string City { get; set; }
 
         [DisplayName("Zdjęcie")]
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dddd, dd MMMM yyyy}", ApplyFormatInEditMode = false)]
@@ -41,6 +42,7 @@ namespace DisapeardPeople.MVC.Models
 
         [NotMapped]
         [DisplayName("Załącz zdjęcie zaginionego")]
-        public IFormFile ImageFile { get; set; }
+        [BindNever]
+        public IFormFile? ImageFile { get; set; }
     }
 }
