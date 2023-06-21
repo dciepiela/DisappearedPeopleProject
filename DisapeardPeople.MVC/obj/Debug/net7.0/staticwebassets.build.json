@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qs9UaG1NVxYlVO96tH9dBVzmibG+XR3rTBHMeu12b1U=",
+  "Hash": "tyteZs5jPm+Sm/P1X+bsv10KNhown2JLWruuvE+7M18=",
   "Source": "DisapeardPeople.MVC",
   "BasePath": "_content/DisapeardPeople.MVC",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\Image\\1235229097.jpg",
+      "SourceId": "DisapeardPeople.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\",
+      "BasePath": "_content/DisapeardPeople.MVC",
+      "RelativePath": "Image/1235229097.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\1235229097.jpg"
     },
     {
       "Identity": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\Image\\280968480_3171975586382073_4021445061982699863_n231811184.jpg",
