@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CBUj4XY6LfHEZOCkTT9JaM6/qLXC4keqGsG79C7st4U=",
+  "Hash": "Qs9UaG1NVxYlVO96tH9dBVzmibG+XR3rTBHMeu12b1U=",
   "Source": "DisapeardPeople.MVC",
   "BasePath": "_content/DisapeardPeople.MVC",
   "Mode": "Default",
@@ -1120,23 +1120,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\280968480_3171975586382073_4021445061982699863_n231811184.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\Image\\284208498_3179557565623875_4010796004954354318_n232721054.jpg",
-      "SourceId": "DisapeardPeople.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\",
-      "BasePath": "_content/DisapeardPeople.MVC",
-      "RelativePath": "Image/284208498_3179557565623875_4010796004954354318_n232721054.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Image\\284208498_3179557565623875_4010796004954354318_n232721054.jpg"
     },
     {
       "Identity": "C:\\Users\\mimia\\Desktop\\DisapeardPeopleApp\\DisapeardPeople\\DisapeardPeople.MVC\\wwwroot\\Image\\f4b4a0aa-16a4-4748-9c93-bacf86de5115_281990939_3173615632884735_1395792387874000017_n.jpg",

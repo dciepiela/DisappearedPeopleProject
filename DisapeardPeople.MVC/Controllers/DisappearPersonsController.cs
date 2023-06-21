@@ -70,20 +70,19 @@ namespace DisapeardPeople.MVC.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("Id,FirstName,Surname,Age,Height,City,ImageFile,DisappearDate,Province,Gender")] DisappearPerson disappearPerson)
         {
-                //Zapisz zdjęcie do wwwroot/image
-                string wwwRootPath = _hostEnvironment.WebRootPath;
-                string fileName = Path.GetFileNameWithoutExtension(disappearPerson.ImageFile.FileName);
-                string extension = Path.GetExtension(disappearPerson.ImageFile.FileName);
-                disappearPerson.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath + "/Image", fileName);
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    await disappearPerson.ImageFile.CopyToAsync(fileStream);
-                }
-
-                _context.Add(disappearPerson);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            //Zapisz zdjęcie do wwwroot/image
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(disappearPerson.ImageFile.FileName);
+            string extension = Path.GetExtension(disappearPerson.ImageFile.FileName);
+            disappearPerson.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/Image", fileName);
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await disappearPerson.ImageFile.CopyToAsync(fileStream);
+            }
+            _context.Add(disappearPerson);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: DisappearPersons/Edit/5

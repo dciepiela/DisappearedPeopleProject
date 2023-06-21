@@ -42,7 +42,6 @@ namespace DisapeardPeople.MVC.Models
 
         [NotMapped]
         [DisplayName("Załącz zdjęcie zaginionego")]
-        [BindNever]
         public IFormFile? ImageFile { get; set; }
     }
 }
